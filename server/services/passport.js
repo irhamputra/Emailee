@@ -37,5 +37,3 @@ passport.use(new GoogleStrategy({
             });
     })
 );
-
-// define any Strategy here!
