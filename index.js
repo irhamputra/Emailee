@@ -13,7 +13,7 @@ const app = express();
 
 app.use(
     cookieSession({
-        maxAge: 2592000000,
+        maxAge: 10 * 24 * 60 * 60 * 1000, // 10 days cookie
         keys: [keys.cookieKey]
     })
 );
@@ -31,14 +31,10 @@ if (MongoURI) {
 
 require('./server/routers/auth')(app);
 
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(cors());
 
 const PORT = process.env.PORT || 8001;
-
-app.get('/', (req, res) => {
-    res.send({"hello": "World"});
-});
 
 app.listen(PORT, () => console.log(`Server is running on localhost:${PORT}`));

@@ -1,6 +1,10 @@
 const passport = require('passport');
 
 module.exports = app => {
+    app.get('/', (req, res) => {
+        res.send({"hello": "World"});
+    });
+
     app.get(
         "/auth/google",
         passport.authenticate('google', {
@@ -11,9 +15,9 @@ module.exports = app => {
     app.get(
         '/auth/google/callback',
         passport.authenticate('google'),
-        (req, res, next) => {
-            res.send('Welcome to Emailee');
-            next();
-        }
     );
+
+    app.get('/api/current_user', (req, res) => {
+        res.send(req.user)
+    })
 };
