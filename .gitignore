@@ -1,0 +1,4 @@
+# Created by .ignore support plugin (hsz.mobii)
+node_modules
+.idea
+.env

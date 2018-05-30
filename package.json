@@ -1,0 +1,16 @@
+{
+  "name": "FullstackNodeReact",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Muhamad Irham Prasetyo",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.5"
+  },
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
