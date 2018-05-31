@@ -26,10 +26,10 @@ passport.use(new GoogleStrategy({
         const existUser = await User.findOne({googleId: profile.id});
 
         if (existUser) {
-            done(null, existUser)
-        } else {
-            const user = await new User({googleId: profile.id}).save()
-            done(null, user);
+            return done(null, existUser)
         }
+
+        const user = await new User({googleId: profile.id}).save();
+        done(null, user);
     })
 );
