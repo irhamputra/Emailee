@@ -20,6 +20,9 @@ app.use(
 
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.json());
+app.use(cors());
 
 const MongoURI = keys.MongoUri;
 
@@ -30,10 +33,6 @@ if (MongoURI) {
 }
 
 require('./server/routers/auth')(app);
-
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json());
-app.use(cors());
 
 const PORT = process.env.PORT || 8001;
 
